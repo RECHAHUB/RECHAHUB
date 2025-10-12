@@ -262,6 +262,30 @@ KeyTab:CreateButton({
 					end)
 				end
 			})
+			
+			------------------------------------------------
+-- 🎃 ขโมย Brainrot
+------------------------------------------------
+local Tab4 = Window:CreateTab("🎃 ขโมย Brainrot")
+
+Tab4:CreateButton({
+    Name = "รันสคริปต์ขโมย Brainrot",
+    Callback = function()
+        task.spawn(function()
+            local success, err = pcall(function()
+                -- ใส่ลิงก์สคริปต์ Brainrot ของคุณ
+                loadstring(game:HttpGet('https://raw.githubusercontent.com/KaspikScriptsRb/steal-a-brainrot/refs/heads/main/.lua'))()
+            end)
+            if success then
+                Notify("✅ สำเร็จ", "โหลดสคริปต์ Brainrot แล้ว!", true)
+            else
+                Notify("❌ ล้มเหลว", "โหลดสคริปต์ Brainrot ไม่สำเร็จ", false)
+            end
+        end)
+    end
+})
+
+			
 			------------------------------------------------
 		else
 			Notify("❌ คีย์ไม่ถูกต้อง!", "กรุณาลองใหม่อีกครั้ง", false)
