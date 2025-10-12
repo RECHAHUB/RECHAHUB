@@ -165,7 +165,7 @@ Tab2:CreateButton({
     Callback = function()
         task.spawn(function()
             local success, err = pcall(function()
-                loadstring(game:HttpGet("https://raw.githubusercontent.com/your_script_link"))()
+                loadstring(game:HttpGet("https://raw.githubusercontent.com/caomod2077/Script/refs/heads/main/FoxnameHub.lua"))()
             end)
             if success then
                 Notify("✅ สำเร็จ", "รันสคริปต์ คืน 99 สำเร็จ!", true)
