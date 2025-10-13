@@ -4,6 +4,7 @@
 -- ✅ ตั้งค่าคีย์และลิงก์
 local correctKey = "JkMUpmKEiaSZcGmyKmkIpDkLuDFIaAQu"
 local getKeyLink = "https://link-hub.net/1409495/iq28HOx18ksL"
+local discordLink = "https://discord.gg/yv75SeE3"
 
 -- โหลด Rayfield
 local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
@@ -53,13 +54,22 @@ KeyTab:CreateButton({
     end
 })
 
+-- 🟢 ปุ่มติดต่อ Discord (หน้า Key)
+KeyTab:CreateButton({
+    Name = "💬 ติดต่อ Discord Support",
+    Callback = function()
+        setclipboard(discordLink)
+        Notify("คัดลอกลิงก์ Discord แล้ว!", "นำไปวางในเบราว์เซอร์เพื่อเข้าร่วมเซิร์ฟเวอร์", true)
+    end
+})
+
 KeyTab:CreateButton({
     Name = "✅ ยืนยันคีย์",
     Callback = function()
         if keyInput == correctKey then
             Notify("สำเร็จ!", "คีย์ถูกต้อง กำลังโหลด RECHA HUB...", true)
             task.wait(1)
-            Rayfield:Destroy() -- ปิดหน้าคีย์
+            Rayfield:Destroy()
             task.wait(0.5)
 
             ------------------------------------------------
@@ -96,6 +106,16 @@ KeyTab:CreateButton({
             -- 🧑‍💻 แอดมิน
             ------------------------------------------------
             local Tab1 = Window:CreateTab("🧑‍💻 แอดมิน")
+
+            -- 🔹 ปุ่ม Discord ในเมนูหลัก
+            Tab1:CreateButton({
+                Name = "💬 เข้าดิสคอร์ด RECHA HUB",
+                Callback = function()
+                    setclipboard(discordLink)
+                    Notify("คัดลอกลิงก์ Discord แล้ว!", "นำไปวางในเบราว์เซอร์เพื่อเข้าร่วมเซิร์ฟเวอร์", true)
+                end
+            })
+
             Tab1:CreateSlider({
                 Name = "ความเร็ว",
                 Range = {16, 200},
@@ -139,7 +159,10 @@ KeyTab:CreateButton({
                 Callback = function()
                     task.spawn(function()
                         local success, err = pcall(function()
-                            loadstring(game:HttpGet("https://gist.githubusercontent.com/meozoneYT/bf037dff9f0a70017304ddd67fdcd370/raw/fly_obfuscator.lua"))()
+                            --[[
+	WARNING: Heads up! This script has not been verified by ScriptBlox. Use at your own risk!
+]]
+loadstring(game:HttpGet("https://raw.githubusercontent.com/XNEOFF/FlyGuiV3/main/FlyGuiV3.txt"))()
                         end)
                         if success then
                             Notify("✅ สำเร็จ", "เปิดโหมดบินแล้ว!", true)
@@ -205,22 +228,6 @@ KeyTab:CreateButton({
             ------------------------------------------------
             local Tab2 = Window:CreateTab("🌙 คืน 99")
             Tab2:CreateButton({
-                Name = "เปิดสคริปต์ คืน 99",
-                Callback = function()
-                    task.spawn(function()
-                        local success, err = pcall(function()
-                            loadstring(game:HttpGet("https://raw.githubusercontent.com/your_script_link"))()
-                        end)
-                        if success then
-                            Notify("✅ สำเร็จ", "รันสคริปต์ คืน 99 สำเร็จ!", true)
-                        else
-                            Notify("❌ ล้มเหลว", "โหลดสคริปต์ คืน 99 ไม่สำเร็จ", false)
-                        end
-                    end)
-                end
-            })
-
-                Tab2:CreateButton({
                 Name = "เปิดสคริปต์ คืน 99",
                 Callback = function()
                     task.spawn(function()
@@ -291,7 +298,6 @@ KeyTab:CreateButton({
                     end)
                 end
             })
-
         else
             Notify("❌ คีย์ไม่ถูกต้อง!", "กรุณาลองใหม่อีกครั้ง", false)
         end
