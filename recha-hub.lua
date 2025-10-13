@@ -2,8 +2,8 @@
 -- ผู้สร้าง: พิชานนท์ อ่อนใจ
 
 -- ✅ ตั้งค่าคีย์และลิงก์
-local correctKey = "HkMUpmKEiaSZcGmyKmkIpDkLuMFIaAQu"
-local getKeyLink = "https://link-hub.net/1409495/QdVImmebdIO7"
+local correctKey = "JkMUpmKEiaSZcGmyKmkIpDkLuDFIaAQu"
+local getKeyLink = "https://link-hub.net/1409495/iq28HOx18ksL"
 
 -- โหลด Rayfield
 local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
