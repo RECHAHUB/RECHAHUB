@@ -209,12 +209,29 @@ local function LoadMainUI()
     -- ===================
     local TabFoot = Window:CreateTab("📏 บอกฟุต")
     TabFoot:CreateButton({
-        Name="บอกฟุต",
+        Name="บอกฟุต Zee-Hub ไม่มีคีย์",
         Callback=function()
             loadstring(game:HttpGet("https://zuwz.me/Ls-Zee-Hub"))()
             Notify("บอกฟุต","บอกฟุตเรียบร้อย!",true)
         end
     })
+
+    TabFoot:CreateButton({
+        Name="บอกฟุต NutHub มีคีย์",
+        Callback=function()
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/ArdyBotzz/NatHub/refs/heads/master/NatHub.lua"))()
+            Notify("บอกฟุต","บอกฟุตเรียบร้อย!",true)
+        end
+    })
+
+    TabFoot:CreateButton({
+        Name="บอกฟุตSpeed Hub มีคีย์",
+        Callback=function()
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/AhmadV99/Speed-Hub-X/main/Speed%20Hub%20X.lua", true))()
+            Notify("บอกฟุต","บอกฟุตเรียบร้อย!",true)
+        end
+    })
+
 
     -- ===================
     -- แท็บ 3: Brainrot
