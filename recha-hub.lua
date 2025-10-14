@@ -1,7 +1,7 @@
 -- 🔥 RECHA HUB | Modern UI 4 แท็บ + Key System
 -- ผู้สร้าง: พิชานนท์ อ่อนใจ
 
-local correctKey = "JkMUpmKEiaSZcGmyKmkIpDkLuDFIaAQu"
+local correctKey = "HkMUpLKGiaSZcGmyKmkIpDkLuDFIaAQd"
 local getKeyLink = "https://link-hub.net/1409495/iq28HOx18ksL"
 local discordLink = "https://discord.gg/yv75SeE3"
 
