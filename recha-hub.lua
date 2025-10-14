@@ -102,7 +102,7 @@ local function LoadMainUI()
     end
 
     local Window = Rayfield:CreateWindow({
-        Name = "🔥 RECHA HUB | Modern UI",
+        Name = "🔥 RECHA HUB | All maps",
         LoadingTitle = "RECHA HUB",
         LoadingSubtitle = "Blox Fruits",
         ConfigurationSaving = {Enabled = true, FolderName = "RECHA HUB"},
