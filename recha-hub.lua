@@ -211,7 +211,7 @@ local function LoadMainUI()
     TabFoot:CreateButton({
         Name="บอกฟุต",
         Callback=function()
-            loadstring(game:HttpGet("URL_โค้ด_บอกฟุต"))()
+            loadstring(game:HttpGet("https://zuwz.me/Ls-Zee-Hub"))()
             Notify("บอกฟุต","บอกฟุตเรียบร้อย!",true)
         end
     })
@@ -235,7 +235,7 @@ local function LoadMainUI()
     Tab99:CreateButton({
         Name="คืน 99", 
         Callback=function()
-            loadstring(game:HttpGet("URL_โค้ด_คืน99"))()
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/your_script_link"))()
             Notify("คืน 99","คืน 99 เรียบร้อย!",true)
         end
     })
