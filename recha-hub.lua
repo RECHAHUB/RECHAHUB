@@ -235,7 +235,7 @@ local function LoadMainUI()
     Tab99:CreateButton({
         Name="คืน 99", 
         Callback=function()
-            loadstring(game:HttpGet("https://raw.githubusercontent.com/your_script_link"))()
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/ChuScriptsOfficial/ChuHUB/main/Loader"))()
             Notify("คืน 99","คืน 99 เรียบร้อย!",true)
         end
     })
