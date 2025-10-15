@@ -232,6 +232,14 @@ local function LoadMainUI()
         end
     })
 
+    TabFoot:CreateButton({
+        Name="บอกฟุตSolix Hub มีคีย์",
+        Callback=function()
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/meobeo8/a/a/a"))()
+            Notify("บอกฟุต","บอกฟุตเรียบร้อย!",true)
+        end
+    })
+
 
     -- ===================
     -- แท็บ 3: Brainrot
