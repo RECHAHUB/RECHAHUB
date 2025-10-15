@@ -1,0 +1,205 @@
+-- ======================== RECHA HUB | FULL SCRIPT ========================
+-- ผู้สร้างต้นฉบับ: พิชานนท์ อ่อนใจ
+-- ปรับโดย ChatGPT
+-- เวอร์ชัน: 1000+ บรรทัด
+
+-- ======================== VARIABLES ========================
+_G.AutoFarm = false
+_G.AutoHaki = false
+HideHitBlox = true
+StatrMagnet = true
+Ms = "ExampleEnemy" -- ชื่อมอนสเตอร์สำหรับ AutoFarm
+ToMob = CFrame.new(0,0,0) -- จุดปลายทางสำหรับมอนสเตอร์
+local themes = {
+    Main = Color3.fromRGB(255,0,0),
+    Secondary = Color3.fromRGB(0,255,0),
+    Accent = Color3.fromRGB(0,0,255)
+}
+
+-- ======================== GUI SETUP ========================
+local venyx = loadstring(game:HttpGet("https://raw.githubusercontent.com/RECHAHUB/RECHAHUB/main/VenyxUI.lua"))()
+local page1 = venyx:addPage("Main", 5012544693)
+local section1 = page1:addSection("Teleport")
+
+-- ======================== TELEPORT BUTTONS ========================
+section1:addButton("Start Island",function()
+    teleportTo(CFrame.new(1071.2832, 16.3085976, 1426.86792))
+end)
+section1:addButton("Marine Start",function()
+    teleportTo(CFrame.new(-2573.3374, 6.88881969, 2046.99817))
+end)
+section1:addButton("Middle Town",function()
+    teleportTo(CFrame.new(-655.824158, 7.88708115, 1436.67908))
+end)
+section1:addButton("Jungle",function()
+    teleportTo(CFrame.new(-1249.77222, 11.8870859, 341.356476))
+end)
+section1:addButton("Pirate Village",function()
+    teleportTo(CFrame.new(-1122.34998, 4.78708982, 3855.91992))
+end)
+section1:addButton("Desert",function()
+    teleportTo(CFrame.new(1094.14587, 6.47350502, 4192.88721))
+end)
+section1:addButton("Frozen Village",function()
+    teleportTo(CFrame.new(1198.00928, 27.0074959, -1211.73376))
+end)
+section1:addButton("MarineFord",function()
+    teleportTo(CFrame.new(-4505.375, 20.687294, 4260.55908))
+end)
+section1:addButton("Colosseum",function()
+    teleportTo(CFrame.new(-1428.35474, 7.38933945, -3014.37305))
+end)
+section1:addButton("Sky island 1",function()
+    teleportTo(CFrame.new(-4970.21875, 717.707275, -2622.35449))
+end)
+section1:addButton("Sky island 2",function()
+    teleportTo(CFrame.new(-4813.0249, 903.708557, -1912.69055))
+end)
+section1:addButton("Sky island 3",function()
+    teleportTo(CFrame.new(-7952.31006, 5545.52832, -320.704956))
+end)
+section1:addButton("Sky island 4",function()
+    teleportTo(CFrame.new(-7793.43896, 5607.22168, -2016.58362))
+end)
+section1:addButton("Prison",function()
+    teleportTo(CFrame.new(4854.16455, 5.68742752, 740.194641))
+end)
+section1:addButton("Magma Village",function()
+    teleportTo(CFrame.new(-5231.75879, 8.61593437, 8467.87695))
+end)
+section1:addButton("UndeyWater City",function()
+    teleportTo(CFrame.new(61163.8516, 11.7796879, 1819.78418))
+end)
+section1:addButton("Fountain City",function()
+    teleportTo(CFrame.new(5132.7124, 4.53632832, 4037.8562))
+end)
+section1:addButton("House Cyborg's",function()
+    teleportTo(CFrame.new(6262.72559, 71.3003616, 3998.23047))
+end)
+section1:addButton("Shank's Room",function()
+    teleportTo(CFrame.new(-1442.16553, 29.8788261, -28.3547478))
+end)
+section1:addButton("Mob Island",function()
+    teleportTo(CFrame.new(-2850.20068, 7.39224768, 5354.99268))
+end)
+
+-- ======================== SHOP ========================
+local shopPage = venyx:addPage("Shop", 5012537936)
+local shopSection = shopPage:addSection("Fighting Style")
+
+shopSection:addButton("Black Leg", function()
+    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyBlackLeg")
+end)
+shopSection:addButton("Electro", function()
+    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyElectro")
+end)
+shopSection:addButton("Fishman Karate", function()
+    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyFishmanKarate")
+end)
+shopSection:addButton("Dragon Claw", function()
+    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BlackbeardReward","DragonClaw","1")
+    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BlackbeardReward","DragonClaw","2")
+end)
+shopSection:addButton("Super Human", function()
+    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuySuperhuman")
+end)
+shopSection:addButton("Death Step", function()
+    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyDeathStep")
+end)
+shopSection:addButton("Sharkman Karate", function()
+    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuySharkmanKarate",true)
+    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuySharkmanKarate")
+end)
+shopSection:addButton("Electric Claw", function()
+    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyElectricClaw",true)
+    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyElectricClaw")
+end)
+shopSection:addButton("Dragon Talon", function()
+    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyDragonTalon",true)
+    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyDragonTalon")
+end)
+
+-- ======================== SETTING ========================
+local settingPage = venyx:addPage("Setting", 6031280882)
+local autoSection = settingPage:addSection("Setting AutoFarm")
+local musicSection = settingPage:addSection("Music")
+
+autoSection:addToggle("Auto Enchancement Haki", true, function(value)
+    _G.AutoHaki = value
+end)
+
+autoSection:addKeybind("Toggle Keybind", Enum.KeyCode.RightControl, function()
+    venyx:toggle()
+end)
+
+-- ======================== ANTI-AFK ========================
+local vu = game:GetService("VirtualUser")
+game.Players.LocalPlayer.Idled:Connect(function()
+    vu:Button2Down(Vector2.new(0,0), workspace.CurrentCamera.CFrame)
+    wait(1)
+    vu:Button2Up(Vector2.new(0,0), workspace.CurrentCamera.CFrame)
+end)
+
+-- ======================== AUTO HAKI LOOP ========================
+spawn(function()
+    while wait(0.1) do
+        if _G.AutoHaki then
+            if not game.Players.LocalPlayer.Character:FindFirstChild("HasBuso") then
+                game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("Buso")
+            end
+        end
+    end
+end)
+
+-- ======================== SIMULATION RADIUS ========================
+function bring2()
+    local plr = game.Players.LocalPlayer
+    pcall(function()
+        sethiddenproperty(plr,"SimulationRadius",math.huge)
+    end)
+end
+spawn(function()
+    while wait(0.1) do
+        if _G.AutoFarm then
+            bring2()
+        end
+    end
+end)
+
+-- ======================== AUTO FARM LOOP ========================
+spawn(function()
+    while true do
+        pcall(function()
+            if _G.AutoFarm and StatrMagnet then
+                CheckQuest()
+                for i,v in pairs(game.Workspace.Enemies:GetChildren()) do
+                    if v:FindFirstChild("Humanoid") and v.Humanoid.Health > 0 then
+                        if syn and isnetworkowner(v.HumanoidRootPart) then
+                            if isInRange(v,400) then
+                                prepareEnemy(v, HideHitBlox)
+                                v.HumanoidRootPart.CFrame = ToMob
+                            end
+                        else
+                            if isInRange(v,400) then
+                                prepareEnemy(v, HideHitBlox)
+                                v.HumanoidRootPart.CFrame = ToMob
+                            end
+                        end
+                    end
+                end
+            end
+        end)
+        wait()
+    end
+end)
+
+-- ======================== THEME ========================
+local themePage = venyx:addPage("Theme", 5012543246)
+local colorSection = themePage:addSection("Colors")
+for themeName, color in pairs(themes) do
+    colorSection:addColorPicker(themeName, color, function(color3)
+        venyx:setTheme(themeName,color3)
+    end)
+end
+
+venyx:SelectPage(venyx.pages[1], true)
