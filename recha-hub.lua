@@ -332,7 +332,7 @@ local function LoadMainUI()
 	local TabBrainrot = Window:CreateTab("💀 Brainrot")
 	TabBrainrot:CreateButton({Name="เปิด Brainrot", Callback=function()
 		-- เปลี่ยน URL ให้เป็นของจริงเมื่อมี
-		loadstring(game:HttpGet("URL_โค้ด_Brainrot"))()
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/H4xScripts/Loader/refs/heads/main/loader2.lua", true))()
 		Notify("Brainrot","เปิด Brainrot เรียบร้อย!",true)
 	end})
 
