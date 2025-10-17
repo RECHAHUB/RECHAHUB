@@ -346,6 +346,12 @@ local function LoadMainUI()
 	end})
 end
 
+Tab99:CreateButton({Name="คืน 99", Callback=function()
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/DarkenedEssence/Elude/refs/heads/main/Loader.lua"))()
+		Notify("คืน 99","คืน 99 เรียบร้อย!",true)
+	end})
+end
+
 -- =========================
 -- Key Submit
 -- =========================
