@@ -2,7 +2,7 @@
 -- ผู้สร้าง: พิชานนท์ อ่อนใจ (ปรับปรุงโดย ChatGPT)
 -- ฟีเจอร์: Key UI ใหม่ (เล็ก, ทึบ, กากบาท, เลื่อนได้) + Fly/ESP เปิดปิด + 4 แท็บ
 
-local correctKey = "RECHAV7shJhk8dkckj"
+local correctKey = "RECHAV14VtyUHKl"
 local getKeyLink = "https://link-hub.net/1409495/iq28HOx18ksL"
 local discordLink = "https://discord.gg/yv75SeE3"
 
