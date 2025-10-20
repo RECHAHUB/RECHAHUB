@@ -296,6 +296,42 @@ local function LoadMainUI()
 		end
 	})
 
+	-- Noclip toggle
+local noclipEnabled = false
+local noclipConnection
+
+TabAdmin:CreateButton({
+	Name = "🚪 เปิด/ปิด เดินทะลุ (Noclip)",
+	Callback = function()
+		noclipEnabled = not noclipEnabled
+		if noclipEnabled then
+			noclipConnection = game:GetService("RunService").Stepped:Connect(function()
+				local char = game.Players.LocalPlayer.Character
+				if char then
+					for _, part in pairs(char:GetDescendants()) do
+						if part:IsA("BasePart") and part.CanCollide == true then
+							part.CanCollide = false
+						end
+					end
+				end
+			end)
+			Notify("✅ เปิดเดินทะลุ", "คุณสามารถเดินทะลุสิ่งของได้แล้ว", true)
+		else
+			if noclipConnection then noclipConnection:Disconnect() end
+			local char = game.Players.LocalPlayer.Character
+			if char then
+				for _, part in pairs(char:GetDescendants()) do
+					if part:IsA("BasePart") then
+						part.CanCollide = true
+					end
+				end
+			end
+			Notify("🛑 ปิดเดินทะลุ", "กลับสู่โหมดปกติ", false)
+		end
+	end
+})
+
+
 	-- Discord
 	TabAdmin:CreateButton({
 		Name="💬 เข้าดิสคอร์ด RECHA HUB",
