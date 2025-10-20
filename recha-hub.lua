@@ -182,7 +182,7 @@ local function LoadMainUI()
 	local TabAdmin = Window:CreateTab("🧑‍💻 Admin")
 	local currentWalkSpeed = 50
 
-	-- Speed
+	-- ความเร็ว
 	TabAdmin:CreateSlider({
 		Name="ความเร็ว",
 		Range={16,200},
@@ -205,7 +205,7 @@ local function LoadMainUI()
 		humanoid.WalkSpeed = currentWalkSpeed
 	end)
 
-	-- Jump
+	-- กระโดดสูง
 	TabAdmin:CreateSlider({
 		Name = "กระโดดสูง",
 		Range = {50, 300},
@@ -331,7 +331,6 @@ local function LoadMainUI()
 	-- ===================
 	local TabBrainrot = Window:CreateTab("💀 Brainrot")
 	TabBrainrot:CreateButton({Name="เปิด Brainrot", Callback=function()
-		-- เปลี่ยน URL ให้เป็นของจริงเมื่อมี
 		loadstring(game:HttpGet("https://raw.githubusercontent.com/H4xScripts/Loader/refs/heads/main/loader2.lua", true))()
 		Notify("Brainrot","เปิด Brainrot เรียบร้อย!",true)
 	end})
@@ -340,15 +339,13 @@ local function LoadMainUI()
 	-- แท็บ 4: 99 คืนในป่า
 	-- ===================
 	local Tab99 = Window:CreateTab("🌲 99 คืนในป่า")
-	Tab99:CreateButton({Name="คืน 99", Callback=function()
+	Tab99:CreateButton({Name="คืน 99 (ChuHub)", Callback=function()
 		loadstring(game:HttpGet("https://raw.githubusercontent.com/ChuScriptsOfficial/ChuHUB/main/Loader"))()
-		Notify("คืน 99","คืน 99 เรียบร้อย!",true)
+		Notify("คืน 99 (ChuHub)","คืน 99 เรียบร้อย!",true)
 	end})
-end
-
-Tab99:CreateButton({Name="คืน 99", Callback=function()
+	Tab99:CreateButton({Name="คืน 99 (Elude)", Callback=function()
 		loadstring(game:HttpGet("https://raw.githubusercontent.com/DarkenedEssence/Elude/refs/heads/main/Loader.lua"))()
-		Notify("คืน 99","คืน 99 เรียบร้อย!",true)
+		Notify("คืน 99 (Elude)","คืน 99 เรียบร้อย!",true)
 	end})
 end
 
