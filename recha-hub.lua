@@ -331,6 +331,58 @@ TabAdmin:CreateButton({
 	end
 })
 
+	-- 🎯 Aimbot System (RECHA HUB)
+local RunService = game:GetService("RunService")
+local UserInputService = game:GetService("UserInputService")
+local Camera = workspace.CurrentCamera
+local Players = game:GetService("Players")
+local LocalPlayer = Players.LocalPlayer
+
+local aimbotEnabled = false
+local aimPart = "Head" -- จุดล็อกเป้า เช่น "Head", "Torso"
+
+local function getClosestPlayer()
+	local closestPlayer = nil
+	local shortestDistance = math.huge
+	for _, player in ipairs(Players:GetPlayers()) do
+		if player ~= LocalPlayer and player.Character and player.Character:FindFirstChild(aimPart) then
+			local pos, onScreen = Camera:WorldToViewportPoint(player.Character[aimPart].Position)
+			if onScreen then
+				local mousePos = UserInputService:GetMouseLocation()
+				local distance = (Vector2.new(pos.X, pos.Y) - mousePos).Magnitude
+				if distance < shortestDistance then
+					shortestDistance = distance
+					closestPlayer = player
+				end
+			end
+		end
+	end
+	return closestPlayer
+end
+
+-- 🔄 เปิด/ปิดเอมบอท
+UserInputService.InputBegan:Connect(function(input)
+	if input.KeyCode == Enum.KeyCode.E then -- กด E เพื่อเปิด/ปิด
+		aimbotEnabled = not aimbotEnabled
+		game.StarterGui:SetCore("SendNotification", {
+			Title = "🎯 RECHA HUB",
+			Text = aimbotEnabled and "เปิด Aimbot แล้ว!" or "ปิด Aimbot แล้ว!",
+			Duration = 3
+		})
+	end
+end)
+
+-- 🎯 ระบบเล็งอัตโนมัติ
+RunService.RenderStepped:Connect(function()
+	if aimbotEnabled then
+		local target = getClosestPlayer()
+		if target and target.Character and target.Character:FindFirstChild(aimPart) then
+			Camera.CFrame = CFrame.new(Camera.CFrame.Position, target.Character[aimPart].Position)
+		end
+	end
+end)
+
+
 
 	-- Discord
 	TabAdmin:CreateButton({
