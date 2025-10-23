@@ -1,0 +1,1 @@
+loadstring(game:HttpGet("https://raw.githubusercontent.com/RECHAHUB/RECHAHUB/refs/heads/main/recha-hub.lua"))()
