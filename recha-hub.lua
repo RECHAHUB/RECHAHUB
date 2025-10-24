@@ -331,19 +331,32 @@ TabAdmin:CreateButton({
 	end
 })
 
-	-- 🎯 Aimbot System (RECHA HUB)
+-- 🎯 RECHA HUB | Aimbot System (FOV + Auto Color)
 local RunService = game:GetService("RunService")
 local UserInputService = game:GetService("UserInputService")
 local Camera = workspace.CurrentCamera
 local Players = game:GetService("Players")
 local LocalPlayer = Players.LocalPlayer
+local Mouse = LocalPlayer:GetMouse()
 
 local aimbotEnabled = false
-local aimPart = "Head" -- จุดล็อกเป้า เช่น "Head", "Torso"
+local aimPart = "Head"
+local fovRadius = 150
+local currentTarget = nil
 
+-- 🟢 วาดวง FOV (รอบเมาส์)
+local FovCircle = Drawing.new("Circle")
+FovCircle.Thickness = 2
+FovCircle.Radius = fovRadius
+FovCircle.Filled = false
+FovCircle.Color = Color3.fromRGB(0, 255, 255)
+FovCircle.Transparency = 0.8
+FovCircle.Visible = true
+
+-- 🔍 หาเป้าหมายที่ใกล้ที่สุดในวง FOV
 local function getClosestPlayer()
 	local closestPlayer = nil
-	local shortestDistance = math.huge
+	local shortestDistance = fovRadius
 	for _, player in ipairs(Players:GetPlayers()) do
 		if player ~= LocalPlayer and player.Character and player.Character:FindFirstChild(aimPart) then
 			local pos, onScreen = Camera:WorldToViewportPoint(player.Character[aimPart].Position)
@@ -360,9 +373,9 @@ local function getClosestPlayer()
 	return closestPlayer
 end
 
--- 🔄 เปิด/ปิดเอมบอท
+-- 🔄 เปิด/ปิด Aimbot ด้วยปุ่ม E
 UserInputService.InputBegan:Connect(function(input)
-	if input.KeyCode == Enum.KeyCode.E then -- กด E เพื่อเปิด/ปิด
+	if input.KeyCode == Enum.KeyCode.E then
 		aimbotEnabled = not aimbotEnabled
 		game.StarterGui:SetCore("SendNotification", {
 			Title = "🎯 RECHA HUB",
@@ -372,15 +385,39 @@ UserInputService.InputBegan:Connect(function(input)
 	end
 end)
 
--- 🎯 ระบบเล็งอัตโนมัติ
+-- 🔁 ระบบเล็งอัตโนมัติ + อัปเดตวง FOV
 RunService.RenderStepped:Connect(function()
+	FovCircle.Position = UserInputService:GetMouseLocation()
+
 	if aimbotEnabled then
 		local target = getClosestPlayer()
 		if target and target.Character and target.Character:FindFirstChild(aimPart) then
+			currentTarget = target
 			Camera.CFrame = CFrame.new(Camera.CFrame.Position, target.Character[aimPart].Position)
+			FovCircle.Color = Color3.fromRGB(0, 255, 0) -- เปลี่ยนเป็นสีเขียวเมื่อมีเป้า
+		else
+			currentTarget = nil
+			FovCircle.Color = Color3.fromRGB(0, 255, 255) -- สีฟ้าเมื่อไม่มีเป้า
 		end
+	else
+		FovCircle.Color = Color3.fromRGB(255, 50, 50) -- สีแดงเมื่อปิด Aimbot
 	end
 end)
+
+-- 🎚 เพิ่ม Slider ปรับขนาด FOV ในแท็บ Admin
+TabAdmin:CreateSlider({
+	Name = "🎯 ขนาดวงเล็ง (FOV)",
+	Range = {50, 400},
+	Increment = 5,
+	CurrentValue = fovRadius,
+	ValueFormat = function(Value) return tostring(Value) end,
+	Callback = function(Value)
+		fovRadius = Value
+		FovCircle.Radius = Value
+	end
+})
+
+
 
 
 
