@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Maru Hub Clone 100%</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="logo">Maru Hub</div>
+    <div class="menu-toggle" id="menu-toggle">&#9776;</div>
+    <nav id="navbar">
+      <a href="#" id="home-link">Home</a>
+      <a href="#" id="product-link">สินค้า</a>
+      <a href="#" id="login-link">เข้าสู่ระบบ</a>
+    </nav>
+  </header>
+
+  <!-- Pages -->
+  <main>
+    <!-- Home Page -->
+    <section id="home-page">
+      <h1>ยินดีต้อนรับสู่ Maru Hub</h1>
+      <p>ร้านค้าสคริปต์และโปรแกรมเหมือนต้นฉบับ</p>
+    </section>
+
+    <!-- Product Page -->
+    <section id="product-page" class="hidden">
+      <h2>สินค้า</h2>
+      <button id="admin-toggle" class="hidden">Admin Mode</button>
+      <div id="product-list"></div>
+    </section>
+
+    <!-- Login Page -->
+    <section id="login-page" class="hidden">
+      <h2>เข้าสู่ระบบ / สมัครสมาชิก</h2>
+      <form id="login-form">
+        <input type="text" id="username" placeholder="ชื่อผู้ใช้" required>
+        <input type="password" id="password" placeholder="รหัสผ่าน" required>
+        <button type="submit">เข้าสู่ระบบ</button>
+        <button type="button" id="register-btn">สมัครสมาชิก</button>
+      </form>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
